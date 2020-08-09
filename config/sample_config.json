@@ -1,0 +1,12 @@
+{
+	"dataset_name": "Name of Dataset(ESC/UrbanSound/GTZAN)",
+	"data_dir": "Path where the spectrograms are stored",
+	"dataaug": "true/false",
+	"pretrained": "true/false",
+	"model": "Name of the model",
+	"batch_size": "Batch Size",
+	"num_workers": "Number of CPU Cores for DataLoaders",
+	"epochs": "Number of Epochs",
+	"lr": "Learning Rate",
+    "weight_decay": "Weight Decay",
+}
