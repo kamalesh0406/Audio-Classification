@@ -17,7 +17,7 @@ from tqdm import tqdm
 from tensorboardX import SummaryWriter
 
 parser = argparse.ArgumentParser()
-parser.add_argument("config_path", type=str)
+parser.add_argument("--config_path", type=str)
 
 
 def train(model, device, data_loader, optimizer, loss_fn):
