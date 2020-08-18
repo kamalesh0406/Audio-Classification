@@ -1,0 +1,15 @@
+{
+	"dataset_name": "GTZAN",
+	"data_dir": "/path/to/data_directory/",
+	"dataaug": true,
+	"pretrained": true,
+	"scheduler": true,
+	"model": "densenet",
+	"batch_size": 32,
+	"num_workers": 8,
+	"epochs": 70,
+	"lr": 1e-4,
+    "weight_decay": 1e-3,
+    "num_folds": 1,
+    "checkpoint_dir": "/path/to/checkpoint_dir"
+}
