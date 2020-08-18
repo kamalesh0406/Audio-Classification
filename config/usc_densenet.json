@@ -1,5 +1,5 @@
 {
-	"dataset_name": "GTZAN",
+	"dataset_name": "USC",
 	"data_dir": "/path/to/data_directory/",
 	"dataaug": true,
 	"pretrained": true,
