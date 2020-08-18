@@ -1,5 +1,5 @@
 {
-	"dataset_name": "ESC",
+	"dataset_name": "GTZAN",
 	"data_dir": "/path/to/data_directory/",
 	"dataaug": true,
 	"pretrained": true,

@@ -23,7 +23,6 @@ def extract_spectrogram(values, clip, entries):
 		centre_sec = 2.5
 
 		specs = []
-		clip = []
 		for i in range(num_channels):
 			window_length = int(round(window_sizes[i]*args.sampling_rate/1000))
 			hop_length = int(round(hop_sizes[i]*args.sampling_rate/1000))

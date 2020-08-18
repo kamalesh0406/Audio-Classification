@@ -11,7 +11,6 @@ import os
 from joblib import dump
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--csv_file", type=str)
 parser.add_argument("--data_dir", type=str)
 parser.add_argument("--store_dir", type=str)
 parser.add_argument("--sampling_rate", default=22050, type=int)

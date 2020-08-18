@@ -21,7 +21,7 @@ python preprocessing/preprocessingUSC.py --csv_file /path/to/csv_file/ --data_di
 
 For GTZAN:
 ```
-python preprocessing/preprocessingGTZAN.py --csv_file /path/to/file.csv --data_dir /path/to/audio_data/ --store_dir /path/to/store_spectrograms/ --sampling_rate 22050
+python preprocessing/preprocessingGTZAN.py --data_dir /path/to/audio_data/ --store_dir /path/to/store_spectrograms/ --sampling_rate 22050
 ```
 
 ### Training the Models

@@ -49,14 +49,13 @@ def train_and_evaluate(model, device, train_loader, val_loader, optimizer, loss_
 
     for epoch in range(params.epochs):
         avg_loss = train(model, device, train_loader, optimizer, loss_fn)
-        print("Epoch {}/{} Loss:{}".format(epoch, params.epochs, avg_loss))
 
-        acc = validate.evaluate_esc(model, device, val_loader)
+        acc = validate.evaluate(model, device, val_loader)
+        print("Epoch {}/{} Loss:{} Valid Acc:{}".format(epoch, params.epochs, avg_loss))
+
         is_best = (acc > best_acc)
-
         if is_best:
             best_acc = acc
-            print(best_acc)
         if scheduler:
             scheduler.step()
 
@@ -81,13 +80,13 @@ if __name__ == "__main__":
             train_loader = dataloaders.datasetnormal.fetch_dataloader( "{}training128mel{}.pkl".format(params.data_dir, i), params.dataset_name, params.batch_size, params.num_workers)
             val_loader = dataloaders.datasetnormal.fetch_dataloader("{}validation128mel{}.pkl".format(params.data_dir, i), params.dataset_name, params.batch_size, params.num_workers)
 
-        writer = SummaryWriter(comment=params.dataset)
+        writer = SummaryWriter(comment=params.dataset_name)
         if params.model=="densenet":
-            model = models.densenet.DenseNet(params.dataset, params.pretrained).to(device)
+            model = models.densenet.DenseNet(params.dataset_name, params.pretrained).to(device)
         elif params.model=="resnet":
-            model = models.resnet.ResNet(params.dataset, params.pretrained).to(device)
+            model = models.resnet.ResNet(params.dataset_name, params.pretrained).to(device)
         elif params.model=="inception":
-            model = models.inception.Inception(params.dataset, params.pretrained).to(device) 
+            model = models.inception.Inception(params.dataset_name, params.pretrained).to(device) 
 
         loss_fn = nn.CrossEntropyLoss()
         optimizer = torch.optim.Adam(model.parameters(), lr=params.lr, weight_decay=params.weight_decay)

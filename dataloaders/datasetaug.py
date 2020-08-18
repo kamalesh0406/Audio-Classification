@@ -14,7 +14,7 @@ class MelSpectrogram(object):
 	def __init__(self, bins, mode, dataset):
 		self.window_length = [25, 50, 100]
 		self.hop_length = [10, 25, 50]
-		self.fft = 4410 if datatset=="ESC" else 2205
+		self.fft = 4410 if dataset=="ESC" else 2205
 		self.melbins = bins
 		self.mode = mode
 		self.sr = 44100 if dataset=="ESC" else 22050
@@ -51,7 +51,7 @@ class AudioDataset(Dataset):
 	def __init__(self, pkl_dir, dataset_name, transforms=None):
 		self.transforms = transforms
 		self.data = []
-		self.length = 1500 if dataset=="GTZAN" else 250
+		self.length = 1500 if dataset_name=="GTZAN" else 250
 		with open(pkl_dir, "rb") as f:
 			self.data = pickle.load(f)
 	def __len__(self):
@@ -73,7 +73,7 @@ class AudioDataset(Dataset):
 
 def fetch_dataloader(pkl_dir, dataset_name, batch_size, num_workers, mode):
 	transforms = MelSpectrogram(128, mode, dataset_name)
-	dataset = AudioDataset(pkl_dir, csv_dir, transforms=transforms)
+	dataset = AudioDataset(pkl_dir, dataset_name, transforms=transforms)
 	dataloader = DataLoader(dataset,shuffle=True, batch_size=batch_size, num_workers=num_workers)
 	return dataloader
 	
