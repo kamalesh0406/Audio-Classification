@@ -61,7 +61,7 @@ def train_and_evaluate(model, device, train_loader, val_loader, optimizer, loss_
 
         utils.save_checkpoint({"epoch": epoch + 1,
                                "model": model.state_dict(),
-                               "optimizer": optimizer.state_dict()}, is_best, split, "{}{}".format(params.checkpoint_dir, params.attempt))
+                               "optimizer": optimizer.state_dict()}, is_best, split, "{}".format(params.checkpoint_dir))
         writer.add_scalar("data{}/trainingLoss{}".format(params.dataset_name, split), avg_loss, epoch)
         writer.add_scalar("data{}/valLoss{}".format(params.dataset_name, split), acc, epoch)
     writer.close()
