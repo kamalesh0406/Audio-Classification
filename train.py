@@ -51,7 +51,7 @@ def train_and_evaluate(model, device, train_loader, val_loader, optimizer, loss_
         avg_loss = train(model, device, train_loader, optimizer, loss_fn)
 
         acc = validate.evaluate(model, device, val_loader)
-        print("Epoch {}/{} Loss:{} Valid Acc:{}".format(epoch, params.epochs, avg_loss))
+        print("Epoch {}/{} Loss:{} Valid Acc:{}".format(epoch, params.epochs, avg_loss, acc))
 
         is_best = (acc > best_acc)
         if is_best:
