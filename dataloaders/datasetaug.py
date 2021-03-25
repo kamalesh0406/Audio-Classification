@@ -24,7 +24,7 @@ class MelSpectrogram(object):
 		limits = ((-2, 2), (0.9, 1.2))
 
 		if self.mode=="train":
-			pitch_shift = np.random.randint(limits[0][1], limits[0][1] + 1)
+			pitch_shift = np.random.randint(limits[0][0], limits[0][1] + 1)
 			time_stretch = np.random.random() * (limits[1][1] - limits[1][0]) + limits[1][0]
 			new_audio = librosa.effects.time_stretch(librosa.effects.pitch_shift(sample, self.sr, pitch_shift), time_stretch)
 		else:
