@@ -20,6 +20,10 @@ def extract_spectrogram(values, clip, entries, sr):
 		window_sizes = [25, 50, 100]
 		hop_sizes = [10, 25, 50]
 
+	# Zero-padding for clip(size <= 2205)
+        	if len(clip) <= 2205:
+            		clip = np.concatenate((clip, np.zeros(2205 - len(clip) + 1)))
+
 		specs = []
 		for i in range(num_channels):
 			window_length = int(round(window_sizes[i]*sr/1000))
